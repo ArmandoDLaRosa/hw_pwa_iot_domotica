@@ -1,0 +1,77 @@
+/* Mobile-first styles */
+
+.sensor-card {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: var(--padding);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: var(--padding);
+  display: flex;
+  flex-direction: column;
+}
+
+.sensor-card .card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.sensor-card .card-header h3 {
+  font-size: 1.2em;
+  color: var(--primary-color);
+}
+
+.sensor-card .location {
+  font-size: 0.9em;
+  color: var(--text-color);
+}
+
+.sensor-card .card-content .value {
+  font-size: 2em;
+  color: var(--text-color);
+}
+
+.sensor-card .card-content .motion-status {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.sensor-card .card-content .motion-status.active {
+  color: #ff3860;
+}
+
+.sensor-card .card-content .motion-status.inactive {
+  color: #ccc;
+}
+
+.sensor-card .timestamp {
+  font-size: 0.8em;
+  color: #999;
+  margin-top: 8px;
+}
+
+/* Sensor type color indicators */
+.sensor-card.temperature {
+  border-left: 4px solid #ff7f50;
+}
+
+.sensor-card.humidity {
+  border-left: 4px solid #48c774;
+}
+
+.sensor-card.motion {
+  border-left: 4px solid #ff3860;
+}
+
+/* Larger screen styles */
+@media (min-width: 768px) {
+  .sensor-card {
+    flex-direction: row;
+    align-items: center;
+    padding: var(--padding) var(--padding);
+  }
+
+  .sensor-card .card-content {
+    margin-left: 16px;
+  }
+}
