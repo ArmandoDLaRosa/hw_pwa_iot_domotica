@@ -1,0 +1,65 @@
+/* General Container */
+.dashboard-container {
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+  background-color: #f5f7fa; /* Softer background for better contrast */
+  font-family: 'Arial', sans-serif;
+  border-radius: 8px;
+}
+
+/* Sensor Card Styling */
+.sensor-card {
+  margin-bottom: 24px;
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.sensor-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Chart Container */
+.chart-container {
+  margin-top: 24px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Prevents overflow */
+  max-width: 100%; /* Ensures it does not exceed parent width */
+  box-sizing: border-box; /* Includes padding in total width calculation */
+}
+
+.chart-container h3 {
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Typography */
+body {
+  background-color: #e9ecef; /* Softer page background */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 12px;
+  }
+
+  .chart-container {
+    padding: 16px;
+  }
+
+  .sensor-card {
+    padding: 12px;
+  }
+}

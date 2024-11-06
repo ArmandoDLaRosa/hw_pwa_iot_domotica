@@ -1,77 +1,119 @@
-/* Mobile-first styles */
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+/* Mobile-first styles with refined design */
 
 .sensor-card {
-  background-color: var(--card-background);
-  border-radius: var(--border-radius);
-  padding: var(--padding);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: var(--padding);
+  font-family: 'Montserrat', sans-serif; /* Apply Montserrat font */
+  background-color: #ffffff; /* Use a clean white background for cards */
+  border-radius: 12px; /* Slightly rounded corners for a modern feel */
+  padding: 20px; /* Consistent padding around the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin-bottom: 20px; /* Space between cards */
   display: flex;
   flex-direction: column;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.sensor-card:hover {
+  transform: translateY(-3px); /* Lift on hover for interactivity */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
 }
 
 .sensor-card .card-header {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .sensor-card .card-header h3 {
-  font-size: 1.2em;
-  color: var(--primary-color);
+  font-size: 1.4em; /* Larger, bolder header for prominence */
+  font-weight: 600; /* Semi-bold for better emphasis */
+  color: #333; /* Darker color for better readability */
+  margin: 0; /* Reset margin */
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
 }
 
 .sensor-card .location {
-  font-size: 0.9em;
-  color: var(--text-color);
+  font-size: 0.95em;
+  font-weight: 400; /* Normal weight */
+  color: #666; /* Softer color for less emphasis */
 }
 
-.sensor-card .card-content .value {
-  font-size: 2em;
-  color: var(--text-color);
+.sensor-card .card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sensor-card .value {
+  font-size: 2.5em; /* Emphasize the value */
+  font-weight: 700; /* Bold text for emphasis */
+  color: #2c3e50; /* Dark color for contrast */
+  margin: 0;
+  display: flex;
+  align-items: baseline; /* Align number and unit */
+  gap: 4px; /* Space between number and unit */
 }
 
 .sensor-card .card-content .motion-status {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
-.sensor-card .card-content .motion-status.active {
-  color: #ff3860;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #ff3860; /* Red color for active status */
 }
 
 .sensor-card .card-content .motion-status.inactive {
-  color: #ccc;
+  color: #ccc; /* Grey color for inactive status */
 }
 
 .sensor-card .timestamp {
-  font-size: 0.8em;
-  color: #999;
-  margin-top: 8px;
+  font-size: 0.85em;
+  font-weight: 400; /* Normal weight */
+  color: #888; /* Softer color for the timestamp */
+  margin-top: 12px;
+  text-align: right; /* Align timestamp to the right */
 }
 
 /* Sensor type color indicators */
 .sensor-card.temperature {
-  border-left: 4px solid #ff7f50;
+  border-left: 6px solid #ff7f50;
+  padding-left: 16px;
 }
 
 .sensor-card.humidity {
-  border-left: 4px solid #48c774;
+  border-left: 6px solid #48c774;
+  padding-left: 16px;
 }
 
 .sensor-card.motion {
-  border-left: 4px solid #ff3860;
+  border-left: 6px solid #ff3860;
+  padding-left: 16px;
 }
 
-/* Larger screen styles */
+/* Hover effect for sensor type indicators */
+.sensor-card.temperature:hover,
+.sensor-card.humidity:hover,
+.sensor-card.motion:hover {
+  border-left-width: 8px;
+}
+
+/* Larger screen styles for enhanced layout */
 @media (min-width: 768px) {
   .sensor-card {
     flex-direction: row;
     align-items: center;
-    padding: var(--padding) var(--padding);
+    padding: 24px 32px;
   }
 
   .sensor-card .card-content {
-    margin-left: 16px;
+    margin-left: 24px;
+    flex-grow: 1;
+  }
+
+  .sensor-card .value {
+    font-size: 3em; /* Increase size for large screens */
   }
 }

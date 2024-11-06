@@ -13,6 +13,20 @@
       "sizes": "512x512"
     }
   ],
+  "screenshots": [
+    {
+      "src": "/path/to/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide" 
+    },
+    {
+      "src": "1.jpg",
+      "sizes": "1080x1920",
+      "type": "image/jpg",
+      "form_factor": "narrow"
+    }
+  ],
   "start_url": ".",
   "display": "standalone",
   "background_color": "#ffffff",

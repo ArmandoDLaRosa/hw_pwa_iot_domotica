@@ -1,42 +1,157 @@
-/* styles.css */
+/* style.css */
 
-/* CSS Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Variables */
+/* Root variables for colors and fonts */
 :root {
-  --primary-color: #3f51b5;
-  --background-color: #f5f5f5;
-  --text-color: #333;
-  --card-background: #fff;
-  --border-radius: 8px;
-  --padding: 16px;
+  --primary-color: #4f46e5; /* Indigo-600 */
+  --secondary-color: #6366f1; /* Indigo-400 */
+  --background-color: #edf2f7; /* Soft gray for body background */
+  --text-color: #1a202c; /* Darker text */
+  --subtext-color: #4a5568; /* Medium gray */
+  --accent-color: #22d3ee; /* Cyan-500 */
+  --border-radius: 12px;
+  --box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --hover-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
-.dashboard {
+/* General Styling */
+body, html {
+  font-family: var(--font-family);
+  background: var(--background-color);
+  color: var(--text-color);
+  touch-action: manipulation;
+  margin: 0;
+}
+
+/* Sensor Card Styling */
+.sensor-card {
+  margin-bottom: 24px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sensor-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--hover-box-shadow);
+}
+
+.sensor-card h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.sensor-card .location {
+  font-size: 1rem;
+  color: var(--subtext-color);
+  margin-bottom: 8px;
+}
+
+.sensor-card .value {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin: 0;
   display: flex;
-  flex-direction: column;
+  align-items: baseline;
+  gap: 4px;
 }
 
-/* Larger screen styles */
-@media (min-width: 768px) {
-  .dashboard {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: var(--padding);
+.sensor-card .card-content .motion-status {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #ff3860;
+}
+
+.sensor-card .card-content .motion-status.inactive {
+  color: #ccc;
+}
+
+.sensor-card .timestamp {
+  font-size: 0.9rem;
+  color: #718096;
+  text-align: right;
+}
+
+/* Sensor type color indicators */
+.sensor-card.temperature {
+  border-left: 6px solid #ff7f50;
+  padding-left: 16px;
+}
+
+.sensor-card.humidity {
+  border-left: 6px solid #48c774;
+  padding-left: 16px;
+}
+
+.sensor-card.motion {
+  border-left: 6px solid #ff3860;
+  padding-left: 16px;
+}
+
+.sensor-card.temperature:hover,
+.sensor-card.humidity:hover,
+.sensor-card.motion:hover {
+  border-left-width: 8px;
+}
+
+/* Chart Container Styling */
+.chart-container {
+  margin-top: 20px;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+/* Button Styling */
+button {
+  padding: 12px 16px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent-color);
+  color: white;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #0ea5e9; /* Slightly darker shade */
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sensor-card h3 {
+    font-size: 1.2rem;
   }
 
-  .sensor-card {
-    flex: 1 1 calc(50% - var(--padding));
+  .sensor-card .value {
+    font-size: 2em;
   }
 }
 
-@media (min-width: 1024px) {
-  .sensor-card {
-    flex: 1 1 calc(33.33% - var(--padding));
+@media (max-width: 480px) {
+  .sensor-card h3 {
+    font-size: 1rem;
+  }
+
+  .sensor-card .value {
+    font-size: 1.8em;
+  }
+
+  button {
+    padding: 10px 12px;
+    font-size: 0.9rem;
   }
 }
